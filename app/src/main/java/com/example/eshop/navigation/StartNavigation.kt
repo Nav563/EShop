@@ -48,6 +48,9 @@ fun StartNavigation() {
         composable(ShoesDetails) {
             ShoesDetails()
         }
+        composable(MyBottomApp){
+            MyBottomAppBar()
+        }
     }
 }
 
@@ -59,7 +62,7 @@ const val OnBoard2 = "onboard_two_screen"
 const val OnBoard3 = "onboard_three_screen"
 const val Home = "home_screen"
 const val ShoesDetails = "shoes_details"
-const val Posts = "profile_item_row"
+const val MyBottomApp = "my_bottom_app_bar"
 const val PunyaCoins = "profile_item_row"
 const val ShareBhandara = "share_bhandara_screen"
 const val ChefDetails = "chef_details_screen"

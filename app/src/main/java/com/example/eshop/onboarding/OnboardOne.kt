@@ -26,13 +26,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight.Companion.W400
 import androidx.compose.ui.text.font.FontWeight.Companion.W500
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.eshop.R
 import com.example.eshop.navigation.OnBoard2
-import com.example.eshop.ui.theme.Backgorund
+import com.example.eshop.ui.theme.Background
 
 @Composable
 fun OnboardOneScreen(navHostController: NavHostController) {
@@ -40,7 +39,7 @@ fun OnboardOneScreen(navHostController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .fillMaxWidth()
-            .background(Backgorund)
+            .background(Background)
     ) {
         Image(
             painter = painterResource(id = R.drawable.ellipse_906),

@@ -138,4 +138,6 @@ dependencies {
     implementation (libs.coil.compose)
     implementation(libs.androidx.espresso.core)
 
+    //Animated Bottom Navigation Bar
+    implementation("com.exyte:animated-navigation-bar:1.0.0")
 }

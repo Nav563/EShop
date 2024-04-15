@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,12 +27,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight.Companion.W400
 import androidx.compose.ui.text.font.FontWeight.Companion.W500
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.eshop.R
 import com.example.eshop.components.SpacerHeight
 import com.example.eshop.components.SpacerWidth
-import com.example.eshop.ui.theme.Backgorund
+import com.example.eshop.ui.theme.Background
 import com.example.eshop.ui.theme.LightGrey
 import com.example.eshop.ui.theme.Primary
 
@@ -38,7 +41,7 @@ import com.example.eshop.ui.theme.Primary
 fun ShoesDetails() {
     Box(
         modifier = Modifier
-            .background(Backgorund)
+            .background(Background)
             .fillMaxSize()
     ) {
         Column(
@@ -46,12 +49,15 @@ fun ShoesDetails() {
                 .fillMaxSize()
         ) {
             ShoesDetailsHeader()
-            ImageView()
-            OtherComponents()
+            LazyColumn {
+                items(count = 1) {
+                    ImageView()
+                    OtherComponents()
+                    ShoesPrice()
+                }
+            }
         }
     }
-
-
 }
 
 @Composable
@@ -151,7 +157,7 @@ fun OtherComponents() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White, RoundedCornerShape(24.dp))
+            .background(Color.White, RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp))
     ) {
         Column(
             modifier = Modifier
@@ -161,6 +167,8 @@ fun OtherComponents() {
             SpacerHeight()
             ShoeGallery()
             ShoeSize()
+//            SpacerHeight(30.dp)
+//            ShoesPrice()
         }
     }
 }
@@ -248,7 +256,7 @@ fun ShoeGallery() {
 fun ShoeSize() {
     Column(
         modifier = Modifier
-            .padding(top = 10.dp)
+            .padding(top = 10.dp, bottom = 10.dp)
             .fillMaxWidth()
     ) {
         Row(
@@ -301,7 +309,8 @@ fun ShoeSize() {
             modifier = Modifier
                 .padding(top = 10.dp)
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = "6", style = TextStyle(
@@ -310,6 +319,7 @@ fun ShoeSize() {
                     color = colorResource(id = R.color.subtitle_color)
                 ),
                 modifier = Modifier
+                    .align(Alignment.CenterVertically)
                     .background(LightGrey, RoundedCornerShape(36.dp))
                     .size(50.dp),
                 textAlign = TextAlign.Center
@@ -343,6 +353,7 @@ fun ShoeSize() {
                     color = colorResource(id = R.color.subtitle_color)
                 ),
                 modifier = Modifier
+                    .align(Alignment.CenterVertically)
                     .background(LightGrey, RoundedCornerShape(36.dp))
                     .size(50.dp),
                 textAlign = TextAlign.Center
@@ -369,6 +380,57 @@ fun ShoeSize() {
                     .size(50.dp),
                 textAlign = TextAlign.Center
             )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun ShoesPrice() {
+    Box(
+        modifier = Modifier
+            .background(
+                Color.LightGray,
+                //color = colorResource(id = R.color.background),
+                RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
+            )
+            .fillMaxWidth()
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(20.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(
+                modifier = Modifier
+                    .weight(1F),
+            ) {
+                Text(
+                    text = "Price",
+                    fontSize = 18.sp,
+                    fontWeight = W400,
+                    color = colorResource(id = R.color.subtitle_color)
+                )
+                SpacerHeight()
+                Text(
+                    text = "$849.68",
+                    fontSize = 22.sp,
+                    fontWeight = W500,
+                    color = colorResource(id = R.color.title_color)
+                )
+            }
+            TextButton(
+                onClick = { /*TODO*/ },
+                modifier = Modifier
+                    .weight(1F)
+                    .background(
+                        color = colorResource(id = R.color.primary),
+                        RoundedCornerShape(50.dp)
+                    )
+            ) {
+                Text(text = "Add To Cart", fontSize = 20.sp, fontWeight = W500, color = Color.White)
+            }
         }
     }
 }

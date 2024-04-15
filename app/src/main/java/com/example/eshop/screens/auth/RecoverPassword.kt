@@ -39,15 +39,13 @@ import androidx.compose.ui.text.font.FontWeight.Companion.W400
 import androidx.compose.ui.text.font.FontWeight.Companion.W500
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.eshop.R
 import com.example.eshop.components.SpacerHeight
-import com.example.eshop.components.SpacerWidth
-import com.example.eshop.ui.theme.Backgorund
+import com.example.eshop.ui.theme.Background
 
 @Preview
 @Composable
@@ -55,7 +53,7 @@ fun RecoverPassScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Backgorund)
+            .background(Background)
     ) {
         Column(
             modifier = Modifier

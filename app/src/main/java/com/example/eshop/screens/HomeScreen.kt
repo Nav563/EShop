@@ -20,9 +20,9 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.TextButton
@@ -57,7 +57,7 @@ import com.example.eshop.data.Shoes
 import com.example.eshop.data.productList
 import com.example.eshop.data.shoesList
 import com.example.eshop.navigation.SignIn
-import com.example.eshop.ui.theme.Backgorund
+import com.example.eshop.ui.theme.Background
 import com.example.eshop.ui.theme.Primary
 
 @Composable
@@ -77,10 +77,11 @@ fun HomeScreen(navHostController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(20.dp)
-            .background(Backgorund)
+            .background(Background)
     ) {
-        Column {
+        Column (modifier = Modifier
+            .padding(20.dp)
+            .fillMaxSize()){
             HomeHeader(onClick = {
                 navHostController.navigate(com.example.eshop.navigation.ShoesDetails)
             }
@@ -468,7 +469,6 @@ fun ProductItem(
                 .width(70.dp)
         )
     }
-
 }
 
 @Composable
@@ -498,6 +498,128 @@ fun CommonTitle(
                 )
             )
         }
-
     }
 }
+
+//
+//@Composable
+//fun BottomNavigationBar(
+//    navController: NavController,
+//    items: List<BottomNavItem>
+//) {
+//    BottomNavigation(
+//        backgroundColor = MaterialTheme.colorScheme.surface,
+//        contentColor = MaterialTheme.colorScheme.surface,
+//        elevation = 8.dp,
+//        modifier = Modifier,
+//
+//    ) {
+//        val navBackStackEntry = navController.currentBackStackEntryAsState()
+//        val currentRoute = navBackStackEntry.value?.destination?.route
+//
+//        items.forEach { item ->
+//            BottomNavigationItem(
+//                icon = {
+//                    Icon(
+//                        painter = painterResource(id = item.iconId),
+//                        contentDescription = item.label,
+//                        tint = if (currentRoute == item.route) {
+//                            MaterialTheme.colorScheme.primary
+//                        } else {
+//                            Color.Gray
+//                        }
+//                    )
+//                },
+//                label = { item.label },
+//                selected = currentRoute == item.route,
+//                onClick = {
+//                    navController.navigate(item.route) {
+//                        popUpTo(navController.graph.startDestinationId)
+//                        launchSingleTop = true
+//                    }
+//                }
+//            )
+//        }
+//    }
+//}
+//
+//data class BottomNavItem(
+//    val route: String,
+//    val label: String,
+//    val iconId: Int
+//)
+//
+//@Composable
+//fun MyApp() {
+//    val navController = rememberNavController()
+//
+//    Surface(color = MaterialTheme.colorScheme.background) {
+//        BottomNavigationBar(navController = navController, items = bottomNavItems)
+//    }
+//}
+//
+//val bottomNavItems = listOf(
+//    BottomNavItem("home", "Home", R.drawable.home),
+//    BottomNavItem("heart", "Heart", R.drawable.heart),
+//    BottomNavItem("notification", "Notification", R.drawable.notification),
+//    BottomNavItem("profile", "Profile", R.drawable.user)
+//
+//)
+
+//@Composable
+//fun MainScreen() {
+//    val navigationBarItems = remember {
+//        NavigationBarItems.entries
+//    }
+//    var selectedIndex = remember {
+//        mutableStateOf(0)
+//    }
+//
+//    Scaffold(
+//        modifier = Modifier.padding(all = 12.dp),
+//        bottomBar = {
+//            AnimatedNavigationBar(
+//                selectedIndex = selectedIndex.value,
+//                modifier = Modifier.height(64.dp),
+//                cornerRadius = shapeCornerRadius(cornerRadius = 34.dp),
+//                ballAnimation = Parabolic(tween(300)),
+//                indentAnimation = Height(tween(300)),
+//                barColor = MaterialTheme.colorScheme.primary,
+//                ballColor = MaterialTheme.colorScheme.primary
+//            ) {
+//                navigationBarItems.forEach { item ->
+//                    Box(
+//                        modifier = Modifier
+//                            .fillMaxSize()
+//                            .noRippleClickable { selectedIndex.value = item.ordinal },
+//                        contentAlignment = Alignment.Center
+//                    ) {
+//                        Icon(
+//                            imageVector = item.icon, contentDescription = "Bottom Bar Icon",
+//                            tint = if (selectedIndex.value == item.ordinal) MaterialTheme.colorScheme.onPrimary
+//                            else MaterialTheme.colorScheme.inversePrimary
+//                        )
+//                    }
+//                }
+//            }
+//            }
+//    ){}
+//}
+//
+//enum class NavigationBarItems(val icon: ImageVector) {
+//    Home(icon = Icons.Default.Home),
+//    Heart(icon = Icons.Default.FavoriteBorder),
+//    Profile(icon = Icons.Default.Home)
+//}
+//
+//fun Modifier.noRippleClickable(onClick: () ->Unit) : Modifier = composed{
+//    clickable (
+//        indication = null,
+//        interactionSource = remember {
+//            MutableInteractionSource()
+//        }
+//    ){
+//        onClick()
+//    }
+//}
+

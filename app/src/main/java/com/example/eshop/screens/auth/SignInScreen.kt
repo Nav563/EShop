@@ -42,7 +42,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -50,7 +49,7 @@ import com.example.eshop.R
 import com.example.eshop.components.SpacerHeight
 import com.example.eshop.components.SpacerWidth
 import com.example.eshop.navigation.SignUp
-import com.example.eshop.ui.theme.Backgorund
+import com.example.eshop.ui.theme.Background
 
 
 @Composable
@@ -58,7 +57,7 @@ fun SignInScreen(navHostController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Backgorund)
+            .background(Background)
     ) {
         Column(
             modifier = Modifier
