@@ -30,9 +30,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -117,9 +115,9 @@ fun SignInTextFields(navHostController: NavHostController) {
         mutableStateOf("")
     }
     val isError = remember { mutableStateOf(false) }
-    val isPasswordCorrect = remember {
-        mutableStateOf(true)
-    }
+//    val isPasswordCorrect = remember {
+//        mutableStateOf(true)
+//    }
     Column(
         modifier = Modifier
             .fillMaxWidth()

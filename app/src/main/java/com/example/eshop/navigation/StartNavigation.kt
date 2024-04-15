@@ -1,8 +1,6 @@
 package com.example.eshop.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -63,6 +61,6 @@ const val OnBoard3 = "onboard_three_screen"
 const val Home = "home_screen"
 const val ShoesDetails = "shoes_details"
 const val MyBottomApp = "my_bottom_app_bar"
-const val PunyaCoins = "profile_item_row"
-const val ShareBhandara = "share_bhandara_screen"
-const val ChefDetails = "chef_details_screen"
+//const val PunyaCoins = "profile_item_row"
+//const val ShareBhandara = "share_bhandara_screen"
+//const val ChefDetails = "chef_details_screen"

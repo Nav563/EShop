@@ -29,7 +29,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.W400
 import androidx.compose.ui.text.font.FontWeight.Companion.W500
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,7 +37,6 @@ import androidx.compose.ui.unit.sp
 import com.example.eshop.R
 import com.example.eshop.components.SpacerHeight
 import com.example.eshop.components.SpacerWidth
-import com.example.eshop.screens.navigation.Screens
 import com.example.eshop.ui.theme.Background
 import com.example.eshop.ui.theme.Primary
 
@@ -74,10 +72,10 @@ fun FavoritesHeader() {
             Icon(painter = painterResource(id = R.drawable.back), contentDescription = "")
         }
 
-        androidx.compose.material3.Text(
+        Text(
             text = stringResource(id = R.string.favorite),
             fontSize = 20.sp,
-            fontWeight = FontWeight.W500,
+            fontWeight = W500,
             color = colorResource(id = R.color.title_color)
         )
         IconButton(
